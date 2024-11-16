@@ -1,0 +1,50 @@
+{
+    "accept_request": true,
+    "botstat_update": true,
+    "backup": {
+        "files": true,
+        "users": true,
+        "auto": true
+    },
+    "buttons": {
+        "buy": {
+            "active": false,
+            "url": "https://t.me/"
+        },
+        "hide": false
+    },
+    "payments": {
+        "qiwi_api": {
+            "active": true,
+            "min": 1.0,
+            "max": 321.0,
+            "nickname": false,
+            "real_name": "QIWI #1"
+        },
+        "qiwi_p2p": {
+            "active": true,
+            "min": 25.0,
+            "max": 100000,
+            "real_name": "QIWI #2"
+        },
+        "crystal_pay": {
+            "active": true,
+            "min": 0,
+            "max": 100000,
+            "real_name": "Crystal Pay"
+        },
+        "lolz_pay": {
+            "active": true,
+            "min": 1,
+            "max": 100000,
+            "hold": false,
+            "real_name": "Lolz"
+        }
+    },
+    "premium": {
+        "day": 1,
+        "week": 2,
+        "month": 3,
+        "all": 4
+    }
+}

@@ -1,0 +1,924 @@
+August 1, 2024 > 14:36:10 | INFO | Scheduler started
+August 1, 2024 > 14:36:11 | INFO | Bot: PandaShop_Admin [@PandaShopAdmin_bot]
+August 1, 2024 > 14:36:11 | ERROR | the greenlet library is required to use this function. No module named 'greenlet'
+August 1, 2024 > 14:36:11 | INFO | Added job "auto_update" to job store "default"
+August 1, 2024 > 14:36:11 | INFO | Added job "auto_backup" to job store "default"
+August 1, 2024 > 14:36:11 | INFO | Added job "reset_premium_users" to job store "default"
+August 1, 2024 > 14:36:11 | INFO | Start polling.
+August 1, 2024 > 14:36:27 | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<Dispatcher._process_polling_updates() done, defined at /Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=ValueError("the greenlet library is required to use this function. No module named 'greenlet'")>
+Traceback (most recent call last):
+
+> File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                     │         │     │                   │    │               │        └ True
+                     │         │     │                   │    │               └ [<Update {"update_id":867991130,"message":{"message_id":6,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","la...
+                     │         │     │                   │    └ <function Dispatcher.process_updates at 0x102c2bc70>
+                     │         │     │                   └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1039bdcf0>
+                     │         │     └ <method 'from_iterable' of 'itertools.chain' objects>
+                     │         └ <class 'itertools.chain'>
+                     └ <module 'itertools' (built-in)>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+                 │       │       └ [<coroutine object Handler.notify at 0x1053ada80>]
+                 │       └ <function gather at 0x101a46e60>
+                 └ <module 'asyncio' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/__init__.py'>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+                     │           │        │       └ {}
+                     │           │        └ (<Update {"update_id":867991130,"message":{"message_id":6,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","la...
+                     │           └ <bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1039bdcf0>>
+                     └ Handler.HandlerObj(handler=<bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1...
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+                 │    │                │      │      └ <aiogram.types.fields.Field object at 0x102afa320>
+                 │    │                │      └ <Update {"update_id":867991130,"message":{"message_id":6,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","las...
+                 │    │                └ <function Handler.notify at 0x102b85000>
+                 │    └ <aiogram.dispatcher.handler.Handler object at 0x103f44940>
+                 └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1039bdcf0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 101, in notify
+    await self.dispatcher.middleware.trigger(f"pre_process_{self.middleware_key}", args + (data,))
+          │    │          │          │                                             │       └ {'session': <sqlalchemy.orm.session.AsyncSession object at 0x105397b20>}
+          │    │          │          │                                             └ (<Message {"message_id":6,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username...
+          │    │          │          └ <function MiddlewareManager.trigger at 0x102b981f0>
+          │    │          └ <aiogram.dispatcher.middlewares.MiddlewareManager object at 0x103f44ee0>
+          │    └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1039bdcf0>
+          └ <aiogram.dispatcher.handler.Handler object at 0x103f44940>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/middlewares.py", line 53, in trigger
+    await app.trigger(action, args)
+          │   │       │       └ (<Message {"message_id":6,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username...
+          │   │       └ 'pre_process_message'
+          │   └ <function LifetimeControllerMiddleware.trigger at 0x102b98700>
+          └ <tg_bot.middleware.session.SessionMiddleware object at 0x105379060>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/middlewares.py", line 140, in trigger
+    await self.pre_process(obj, data, *args)
+          │    │           │    │      └ []
+          │    │           │    └ {'session': <sqlalchemy.orm.session.AsyncSession object at 0x105397b20>}
+          │    │           └ <Message {"message_id":6,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username"...
+          │    └ <function SessionMiddleware.pre_process at 0x105383490>
+          └ <tg_bot.middleware.session.SessionMiddleware object at 0x105379060>
+
+  File "/Users/webfinity/Downloads/bot 2/tg_bot/middleware/session.py", line 14, in pre_process
+    async with SessionLocal() as session:
+               │                 └ <sqlalchemy.orm.session.AsyncSession object at 0x105397b20>
+               └ sessionmaker(class_='AsyncSession', bind=<sqlalchemy.ext.asyncio.engine.AsyncEngine object at 0x103350c80>, autoflush=False, ...
+
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 634, in __aexit__
+    await asyncio.shield(task)
+          │       │      └ <Task finished name='Task-12' coro=<AsyncSession.close() done, defined at /Users/webfinity/.pyenv/versions/3.10.5/lib/python3...
+          │       └ <function shield at 0x101a47010>
+          └ <module 'asyncio' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/__init__.py'>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 615, in close
+    await greenlet_spawn(self.sync_session.close)
+          │              │    │            └ <function Session.close at 0x10434f760>
+          │              │    └ <sqlalchemy.orm.session.Session object at 0x105394400>
+          │              └ <sqlalchemy.orm.session.AsyncSession object at 0x105397b20>
+          └ <function greenlet_spawn at 0x102e381f0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/concurrency.py", line 64, in greenlet_spawn
+    _not_implemented()
+    └ <function _not_implemented at 0x102d1b760>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/concurrency.py", line 47, in _not_implemented
+    raise ValueError(
+
+ValueError: the greenlet library is required to use this function. No module named 'greenlet'
+August 1, 2024 > 14:37:28 | INFO | Stop polling...
+August 1, 2024 > 14:37:28 | WARNING | Goodbye!
+August 1, 2024 > 14:37:36 | INFO | Scheduler started
+August 1, 2024 > 14:37:36 | INFO | Bot: PandaShop_Admin [@PandaShopAdmin_bot]
+August 1, 2024 > 14:37:37 | INFO | Added job "auto_update" to job store "default"
+August 1, 2024 > 14:37:37 | INFO | Added job "auto_backup" to job store "default"
+August 1, 2024 > 14:37:37 | INFO | Added job "reset_premium_users" to job store "default"
+August 1, 2024 > 14:37:37 | INFO | Start polling.
+August 1, 2024 > 14:38:02 | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<Dispatcher._process_polling_updates() done, defined at /Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=ProgrammingError("(sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist")>
+Traceback (most recent call last):
+
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 418, in _prepare_and_execute
+    prepared_stmt, attributes = await adapt_connection._prepare(
+                                      │                └ <function AsyncAdapt_asyncpg_connection._prepare at 0x1069ef490>
+                                      └ <AdaptedConnection <asyncpg.connection.Connection object at 0x10c1c13f0>>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 660, in _prepare
+    prepared_stmt = await self._connection.prepare(operation)
+                          │    │                   └ 'SELECT users.user_id, users.username, users.full_name, users.registration_date, users.ban, users.referral_id, users.register...
+                          │    └ <member '_connection' of 'AsyncAdapt_asyncpg_connection' objects>
+                          └ <AdaptedConnection <asyncpg.connection.Connection object at 0x10c1c13f0>>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/asyncpg/connection.py", line 636, in prepare
+    return await self._prepare(
+                 │    └ <function Connection._prepare at 0x107832cb0>
+                 └ <asyncpg.connection.Connection object at 0x10c1c13f0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/asyncpg/connection.py", line 654, in _prepare
+    stmt = await self._get_statement(
+                 │    └ <function Connection._get_statement at 0x1078329e0>
+                 └ <asyncpg.connection.Connection object at 0x10c1c13f0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/asyncpg/connection.py", line 433, in _get_statement
+    statement = await self._protocol.prepare(
+                      │    └ <member '_protocol' of 'Connection' objects>
+                      └ <asyncpg.connection.Connection object at 0x10c1c13f0>
+  File "asyncpg/protocol/protocol.pyx", line 166, in prepare
+    return await waiter
+
+asyncpg.exceptions.UndefinedColumnError: column users.user_id does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+    │    │       └ <function DefaultDialect.do_execute at 0x10686a170>
+    │    └ <sqlalchemy.dialects.postgresql.asyncpg.PGDialect_asyncpg object at 0x107756860>
+    └ <sqlalchemy.future.engine.Connection object at 0x10c925480>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+    │      │       │          └ (5050150433,)
+    │      │       └ 'SELECT users.user_id, users.username, users.full_name, users.registration_date, users.ban, users.referral_id, users.register...
+    │      └ <function AsyncAdapt_asyncpg_cursor.execute at 0x1069ee9e0>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x10c39f060>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+    │    └ <member '_adapt_connection' of 'AsyncAdapt_asyncpg_cursor' objects>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x10c39f060>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 70, in await_only
+    return current.parent.switch(awaitable)
+           │       │             └ <coroutine object AsyncAdapt_asyncpg_cursor._prepare_and_execute at 0x10c39f140>
+           │       └ <attribute 'parent' of 'greenlet.greenlet' objects>
+           └ <_AsyncIoGreenlet object at 0x10692e280 (otid=0x10634f240) dead>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 122, in greenlet_spawn
+    value = await result
+                  └ <coroutine object AsyncAdapt_asyncpg_cursor._prepare_and_execute at 0x10c39f140>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+    │    └ <function AsyncAdapt_asyncpg_cursor._handle_exception at 0x1069ee7a0>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x10c39f060>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+    │    │                                   └ UndefinedColumnError('column users.user_id does not exist')
+    │    └ <member '_adapt_connection' of 'AsyncAdapt_asyncpg_cursor' objects>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x10c39f060>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+          │                     └ UndefinedColumnError('column users.user_id does not exist')
+          └ ProgrammingError("<class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist")
+
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.ProgrammingError: <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+> File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                     │         │     │                   │    │               │        └ True
+                     │         │     │                   │    │               └ [<Update {"update_id":867991132,"message":{"message_id":8,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","la...
+                     │         │     │                   │    └ <function Dispatcher.process_updates at 0x10619fc70>
+                     │         │     │                   └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x106e71ff0>
+                     │         │     └ <method 'from_iterable' of 'itertools.chain' objects>
+                     │         └ <class 'itertools.chain'>
+                     └ <module 'itertools' (built-in)>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+                 │       │       └ [<coroutine object Handler.notify at 0x10c39ece0>]
+                 │       └ <function gather at 0x104fbae60>
+                 └ <module 'asyncio' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/__init__.py'>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+                     │           │        │       └ {}
+                     │           │        └ (<Update {"update_id":867991132,"message":{"message_id":8,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","la...
+                     │           └ <bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x106e71ff0>>
+                     └ Handler.HandlerObj(handler=<bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1...
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+                 │    │                │      │      └ <aiogram.types.fields.Field object at 0x10606e230>
+                 │    │                │      └ <Update {"update_id":867991132,"message":{"message_id":8,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","las...
+                 │    │                └ <function Handler.notify at 0x1060f9000>
+                 │    └ <aiogram.dispatcher.handler.Handler object at 0x107404c40>
+                 └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x106e71ff0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 115, in notify
+    await self.dispatcher.middleware.trigger(f"process_{self.middleware_key}", args + (data,))
+          │    │          │          │                                         │       └ {'state': <aiogram.dispatcher.storage.FSMContext object at 0x10c3346a0>, 'raw_state': None, 'command': Command.CommandObj(pre...
+          │    │          │          │                                         └ (<Message {"message_id":8,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username...
+          │    │          │          └ <function MiddlewareManager.trigger at 0x10610c1f0>
+          │    │          └ <aiogram.dispatcher.middlewares.MiddlewareManager object at 0x1074051e0>
+          │    └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x106e71ff0>
+          └ <aiogram.dispatcher.handler.Handler object at 0x107404c40>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/middlewares.py", line 53, in trigger
+    await app.trigger(action, args)
+          │   │       │       └ (<Message {"message_id":8,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username...
+          │   │       └ 'process_message'
+          │   └ <function BaseMiddleware.trigger at 0x10610c4c0>
+          └ <tg_bot.middleware.ban.CheckBanMiddleware object at 0x10c39b4c0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/middlewares.py", line 106, in trigger
+    await handler(*args)
+          │        └ (<Message {"message_id":8,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username...
+          └ <bound method CheckBanMiddleware.on_process_message of <tg_bot.middleware.ban.CheckBanMiddleware object at 0x10c39b4c0>>
+
+  File "/Users/webfinity/Downloads/bot 2/tg_bot/middleware/ban.py", line 15, in on_process_message
+    user = await get_user(data["session"], message.from_user.id)
+                 │        │                │       └ <aiogram.types.fields.Field object at 0x106028e20>
+                 │        │                └ <Message {"message_id":8,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username"...
+                 │        └ {'state': <aiogram.dispatcher.storage.FSMContext object at 0x10c3346a0>, 'raw_state': None, 'command': Command.CommandObj(pre...
+                 └ <function get_user at 0x10788d870>
+
+  File "/Users/webfinity/Downloads/bot 2/tg_bot/db_api/crud/users.py", line 9, in get_user
+    result = await db.execute(select(User).filter(User.user_id == user_id))
+                   │  │       │      │            │    │          └ 5050150433
+                   │  │       │      │            │    └ <sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x1078998a0>
+                   │  │       │      │            └ <class 'tg_bot.db_api.schemas.user.User'>
+                   │  │       │      └ <class 'tg_bot.db_api.schemas.user.User'>
+                   │  │       └ <function select at 0x106767520>
+                   │  └ <function AsyncSession.execute at 0x1076e3520>
+                   └ <sqlalchemy.orm.session.AsyncSession object at 0x10663b2e0>
+
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 214, in execute
+    result = await greenlet_spawn(
+                   └ <function greenlet_spawn at 0x1063d1990>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 127, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+             │       │      │   └ <built-in function exc_info>
+             │       │      └ <module 'sys' (built-in)>
+             │       └ <method 'throw' of 'greenlet.greenlet' objects>
+             └ <_AsyncIoGreenlet object at 0x10692e280 (otid=0x10634f240) dead>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1717, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+             │    │           │          │             └ immutabledict({'prebuffer_rows': True, '_result_disable_adapt_to_context': True, 'future_result': True})
+             │    │           │          └ None
+             │    │           └ <sqlalchemy.sql.selectable.Select object at 0x10c3343d0>
+             │    └ <function Connection._execute_20 at 0x1067c05e0>
+             └ <sqlalchemy.future.engine.Connection object at 0x10c925480>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1710, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+           │    │     │             │               └ immutabledict({'prebuffer_rows': True, '_result_disable_adapt_to_context': True, 'future_result': True})
+           │    │     │             └ immutabledict({})
+           │    │     └ ({},)
+           │    └ <sqlalchemy.future.engine.Connection object at 0x10c925480>
+           └ <bound method ClauseElement._execute_on_connection of <sqlalchemy.sql.selectable.Select object at 0x10c3343d0>>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+           │          └ <function Connection._execute_clauseelement at 0x1067c0430>
+           └ <sqlalchemy.future.engine.Connection object at 0x10c925480>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1577, in _execute_clauseelement
+    ret = self._execute_context(
+          │    └ <function Connection._execute_context at 0x1067c0700>
+          └ <sqlalchemy.future.engine.Connection object at 0x10c925480>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+    │    └ <function Connection._handle_dbapi_exception at 0x1067c08b0>
+    └ <sqlalchemy.future.engine.Connection object at 0x10c925480>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+    │    └ <function raise_ at 0x106393010>
+    └ <module 'sqlalchemy.util' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/__init__...
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+    │    │       └ <function DefaultDialect.do_execute at 0x10686a170>
+    │    └ <sqlalchemy.dialects.postgresql.asyncpg.PGDialect_asyncpg object at 0x107756860>
+    └ <sqlalchemy.future.engine.Connection object at 0x10c925480>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+    │      │       │          └ (5050150433,)
+    │      │       └ 'SELECT users.user_id, users.username, users.full_name, users.registration_date, users.ban, users.referral_id, users.register...
+    │      └ <function AsyncAdapt_asyncpg_cursor.execute at 0x1069ee9e0>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x10c39f060>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+    │    └ <member '_adapt_connection' of 'AsyncAdapt_asyncpg_cursor' objects>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x10c39f060>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 70, in await_only
+    return current.parent.switch(awaitable)
+           │       │             └ <coroutine object AsyncAdapt_asyncpg_cursor._prepare_and_execute at 0x10c39f140>
+           │       └ <attribute 'parent' of 'greenlet.greenlet' objects>
+           └ <_AsyncIoGreenlet object at 0x10692e280 (otid=0x10634f240) dead>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 122, in greenlet_spawn
+    value = await result
+                  └ <coroutine object AsyncAdapt_asyncpg_cursor._prepare_and_execute at 0x10c39f140>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+    │    └ <function AsyncAdapt_asyncpg_cursor._handle_exception at 0x1069ee7a0>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x10c39f060>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+    │    │                                   └ UndefinedColumnError('column users.user_id does not exist')
+    │    └ <member '_adapt_connection' of 'AsyncAdapt_asyncpg_cursor' objects>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x10c39f060>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+          │                     └ UndefinedColumnError('column users.user_id does not exist')
+          └ ProgrammingError("<class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist")
+
+sqlalchemy.exc.ProgrammingError: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist
+[SQL: SELECT users.user_id, users.username, users.full_name, users.registration_date, users.ban, users.referral_id, users.registered, users.place, users.sex, users.age, users.opposite_sex, users.premium, users.rating, users.total_dialogs, users.total_messages 
+FROM users 
+WHERE users.user_id = %s]
+[parameters: (5050150433,)]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+August 1, 2024 > 14:39:02 | INFO | Stop polling...
+August 1, 2024 > 14:39:02 | WARNING | Goodbye!
+August 1, 2024 > 14:41:00 | INFO | Scheduler started
+August 1, 2024 > 14:41:00 | INFO | Bot: PandaShop_Admin [@PandaShopAdmin_bot]
+August 1, 2024 > 14:41:01 | INFO | Added job "auto_update" to job store "default"
+August 1, 2024 > 14:41:01 | INFO | Added job "auto_backup" to job store "default"
+August 1, 2024 > 14:41:01 | INFO | Added job "reset_premium_users" to job store "default"
+August 1, 2024 > 14:41:01 | INFO | Start polling.
+August 1, 2024 > 14:42:59 | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<Dispatcher._process_polling_updates() done, defined at /Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=ProgrammingError("(sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist")>
+Traceback (most recent call last):
+
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 418, in _prepare_and_execute
+    prepared_stmt, attributes = await adapt_connection._prepare(
+                                      │                └ <function AsyncAdapt_asyncpg_connection._prepare at 0x103543400>
+                                      └ <AdaptedConnection <asyncpg.connection.Connection object at 0x1051bd3f0>>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 660, in _prepare
+    prepared_stmt = await self._connection.prepare(operation)
+                          │    │                   └ 'SELECT users.user_id, users.username, users.full_name, users.registration_date, users.ban, users.referral_id, users.register...
+                          │    └ <member '_connection' of 'AsyncAdapt_asyncpg_connection' objects>
+                          └ <AdaptedConnection <asyncpg.connection.Connection object at 0x1051bd3f0>>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/asyncpg/connection.py", line 636, in prepare
+    return await self._prepare(
+                 │    └ <function Connection._prepare at 0x104622c20>
+                 └ <asyncpg.connection.Connection object at 0x1051bd3f0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/asyncpg/connection.py", line 654, in _prepare
+    stmt = await self._get_statement(
+                 │    └ <function Connection._get_statement at 0x104622950>
+                 └ <asyncpg.connection.Connection object at 0x1051bd3f0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/asyncpg/connection.py", line 433, in _get_statement
+    statement = await self._protocol.prepare(
+                      │    └ <member '_protocol' of 'Connection' objects>
+                      └ <asyncpg.connection.Connection object at 0x1051bd3f0>
+  File "asyncpg/protocol/protocol.pyx", line 166, in prepare
+    return await waiter
+
+asyncpg.exceptions.UndefinedColumnError: column users.user_id does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+    │    │       └ <function DefaultDialect.do_execute at 0x1033be0e0>
+    │    └ <sqlalchemy.dialects.postgresql.asyncpg.PGDialect_asyncpg object at 0x1042aa6e0>
+    └ <sqlalchemy.future.engine.Connection object at 0x1057be620>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+    │      │       │          └ (5050150433,)
+    │      │       └ 'SELECT users.user_id, users.username, users.full_name, users.registration_date, users.ban, users.referral_id, users.register...
+    │      └ <function AsyncAdapt_asyncpg_cursor.execute at 0x103542950>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x105832ce0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+    │    └ <member '_adapt_connection' of 'AsyncAdapt_asyncpg_cursor' objects>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x105832ce0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 70, in await_only
+    return current.parent.switch(awaitable)
+           │       │             └ <coroutine object AsyncAdapt_asyncpg_cursor._prepare_and_execute at 0x105832dc0>
+           │       └ <attribute 'parent' of 'greenlet.greenlet' objects>
+           └ <_AsyncIoGreenlet object at 0x103465680 (otid=0x102f0b0c0) dead>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 122, in greenlet_spawn
+    value = await result
+                  └ <coroutine object AsyncAdapt_asyncpg_cursor._prepare_and_execute at 0x105832dc0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+    │    └ <function AsyncAdapt_asyncpg_cursor._handle_exception at 0x103542710>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x105832ce0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+    │    │                                   └ UndefinedColumnError('column users.user_id does not exist')
+    │    └ <member '_adapt_connection' of 'AsyncAdapt_asyncpg_cursor' objects>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x105832ce0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+          │                     └ UndefinedColumnError('column users.user_id does not exist')
+          └ ProgrammingError("<class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist")
+
+sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_dbapi.ProgrammingError: <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+> File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                     │         │     │                   │    │               │        └ True
+                     │         │     │                   │    │               └ [<Update {"update_id":867991134,"message":{"message_id":10,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","l...
+                     │         │     │                   │    └ <function Dispatcher.process_updates at 0x102d5bbe0>
+                     │         │     │                   └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1039c9e70>
+                     │         │     └ <method 'from_iterable' of 'itertools.chain' objects>
+                     │         └ <class 'itertools.chain'>
+                     └ <module 'itertools' (built-in)>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+                 │       │       └ [<coroutine object Handler.notify at 0x1058328f0>]
+                 │       └ <function gather at 0x101b16dd0>
+                 └ <module 'asyncio' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/__init__.py'>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+                     │           │        │       └ {}
+                     │           │        └ (<Update {"update_id":867991134,"message":{"message_id":10,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","l...
+                     │           └ <bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1039c9e70>>
+                     └ Handler.HandlerObj(handler=<bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1...
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+                 │    │                │      │      └ <aiogram.types.fields.Field object at 0x102c2a0b0>
+                 │    │                │      └ <Update {"update_id":867991134,"message":{"message_id":10,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","la...
+                 │    │                └ <function Handler.notify at 0x102cb0f70>
+                 │    └ <aiogram.dispatcher.handler.Handler object at 0x103f54ac0>
+                 └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1039c9e70>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 115, in notify
+    await self.dispatcher.middleware.trigger(f"process_{self.middleware_key}", args + (data,))
+          │    │          │          │                                         │       └ {'state': <aiogram.dispatcher.storage.FSMContext object at 0x1057be0e0>, 'raw_state': None, 'command': Command.CommandObj(pre...
+          │    │          │          │                                         └ (<Message {"message_id":10,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","usernam...
+          │    │          │          └ <function MiddlewareManager.trigger at 0x102cc8160>
+          │    │          └ <aiogram.dispatcher.middlewares.MiddlewareManager object at 0x103f55060>
+          │    └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1039c9e70>
+          └ <aiogram.dispatcher.handler.Handler object at 0x103f54ac0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/middlewares.py", line 53, in trigger
+    await app.trigger(action, args)
+          │   │       │       └ (<Message {"message_id":10,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","usernam...
+          │   │       └ 'process_message'
+          │   └ <function BaseMiddleware.trigger at 0x102cc8430>
+          └ <tg_bot.middleware.ban.CheckBanMiddleware object at 0x1058274c0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/middlewares.py", line 106, in trigger
+    await handler(*args)
+          │        └ (<Message {"message_id":10,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","usernam...
+          └ <bound method CheckBanMiddleware.on_process_message of <tg_bot.middleware.ban.CheckBanMiddleware object at 0x1058274c0>>
+
+  File "/Users/webfinity/Downloads/bot 2/tg_bot/middleware/ban.py", line 15, in on_process_message
+    user = await get_user(data["session"], message.from_user.id)
+                 │        │                │       └ <aiogram.types.fields.Field object at 0x102be4ca0>
+                 │        │                └ <Message {"message_id":10,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username...
+                 │        └ {'state': <aiogram.dispatcher.storage.FSMContext object at 0x1057be0e0>, 'raw_state': None, 'command': Command.CommandObj(pre...
+                 └ <function get_user at 0x1046817e0>
+
+  File "/Users/webfinity/Downloads/bot 2/tg_bot/db_api/crud/users.py", line 9, in get_user
+    result = await db.execute(select(User).filter(User.user_id == user_id))
+                   │  │       │      │            │    │          └ 5050150433
+                   │  │       │      │            │    └ <sqlalchemy.orm.attributes.InstrumentedAttribute object at 0x104689a80>
+                   │  │       │      │            └ <class 'tg_bot.db_api.schemas.user.User'>
+                   │  │       │      └ <class 'tg_bot.db_api.schemas.user.User'>
+                   │  │       └ <function select at 0x1032a3490>
+                   │  └ <function AsyncSession.execute at 0x104233490>
+                   └ <sqlalchemy.orm.session.AsyncSession object at 0x1057bdea0>
+
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/ext/asyncio/session.py", line 214, in execute
+    result = await greenlet_spawn(
+                   └ <function greenlet_spawn at 0x102f8d900>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 127, in greenlet_spawn
+    result = context.throw(*sys.exc_info())
+             │       │      │   └ <built-in function exc_info>
+             │       │      └ <module 'sys' (built-in)>
+             │       └ <method 'throw' of 'greenlet.greenlet' objects>
+             └ <_AsyncIoGreenlet object at 0x103465680 (otid=0x102f0b0c0) dead>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1717, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+             │    │           │          │             └ immutabledict({'prebuffer_rows': True, '_result_disable_adapt_to_context': True, 'future_result': True})
+             │    │           │          └ None
+             │    │           └ <sqlalchemy.sql.selectable.Select object at 0x1057be470>
+             │    └ <function Connection._execute_20 at 0x103300550>
+             └ <sqlalchemy.future.engine.Connection object at 0x1057be620>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1710, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+           │    │     │             │               └ immutabledict({'prebuffer_rows': True, '_result_disable_adapt_to_context': True, 'future_result': True})
+           │    │     │             └ immutabledict({})
+           │    │     └ ({},)
+           │    └ <sqlalchemy.future.engine.Connection object at 0x1057be620>
+           └ <bound method ClauseElement._execute_on_connection of <sqlalchemy.sql.selectable.Select object at 0x1057be470>>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+           │          └ <function Connection._execute_clauseelement at 0x1033003a0>
+           └ <sqlalchemy.future.engine.Connection object at 0x1057be620>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1577, in _execute_clauseelement
+    ret = self._execute_context(
+          │    └ <function Connection._execute_context at 0x103300670>
+          └ <sqlalchemy.future.engine.Connection object at 0x1057be620>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+    │    └ <function Connection._handle_dbapi_exception at 0x103300820>
+    └ <sqlalchemy.future.engine.Connection object at 0x1057be620>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+    │    └ <function raise_ at 0x102f46f80>
+    └ <module 'sqlalchemy.util' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/__init__...
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+    │    │       └ <function DefaultDialect.do_execute at 0x1033be0e0>
+    │    └ <sqlalchemy.dialects.postgresql.asyncpg.PGDialect_asyncpg object at 0x1042aa6e0>
+    └ <sqlalchemy.future.engine.Connection object at 0x1057be620>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+    │      │       │          └ (5050150433,)
+    │      │       └ 'SELECT users.user_id, users.username, users.full_name, users.registration_date, users.ban, users.referral_id, users.register...
+    │      └ <function AsyncAdapt_asyncpg_cursor.execute at 0x103542950>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x105832ce0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 479, in execute
+    self._adapt_connection.await_(
+    │    └ <member '_adapt_connection' of 'AsyncAdapt_asyncpg_cursor' objects>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x105832ce0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 70, in await_only
+    return current.parent.switch(awaitable)
+           │       │             └ <coroutine object AsyncAdapt_asyncpg_cursor._prepare_and_execute at 0x105832dc0>
+           │       └ <attribute 'parent' of 'greenlet.greenlet' objects>
+           └ <_AsyncIoGreenlet object at 0x103465680 (otid=0x102f0b0c0) dead>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/util/_concurrency_py3k.py", line 122, in greenlet_spawn
+    value = await result
+                  └ <coroutine object AsyncAdapt_asyncpg_cursor._prepare_and_execute at 0x105832dc0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 454, in _prepare_and_execute
+    self._handle_exception(error)
+    │    └ <function AsyncAdapt_asyncpg_cursor._handle_exception at 0x103542710>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x105832ce0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 389, in _handle_exception
+    self._adapt_connection._handle_exception(error)
+    │    │                                   └ UndefinedColumnError('column users.user_id does not exist')
+    │    └ <member '_adapt_connection' of 'AsyncAdapt_asyncpg_cursor' objects>
+    └ <sqlalchemy.dialects.postgresql.asyncpg.AsyncAdapt_asyncpg_cursor object at 0x105832ce0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/sqlalchemy/dialects/postgresql/asyncpg.py", line 682, in _handle_exception
+    raise translated_error from error
+          │                     └ UndefinedColumnError('column users.user_id does not exist')
+          └ ProgrammingError("<class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist")
+
+sqlalchemy.exc.ProgrammingError: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.user_id does not exist
+[SQL: SELECT users.user_id, users.username, users.full_name, users.registration_date, users.ban, users.referral_id, users.registered, users.place, users.sex, users.age, users.opposite_sex, users.premium, users.rating, users.total_dialogs, users.total_messages 
+FROM users 
+WHERE users.user_id = %s]
+[parameters: (5050150433,)]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+August 1, 2024 > 14:43:00 | INFO | Stop polling...
+August 1, 2024 > 14:43:00 | WARNING | Goodbye!
+August 1, 2024 > 14:43:04 | INFO | Scheduler started
+August 1, 2024 > 14:43:05 | INFO | Bot: PandaShop_Admin [@PandaShopAdmin_bot]
+August 1, 2024 > 14:43:05 | INFO | Added job "auto_update" to job store "default"
+August 1, 2024 > 14:43:05 | INFO | Added job "auto_backup" to job store "default"
+August 1, 2024 > 14:43:05 | INFO | Added job "reset_premium_users" to job store "default"
+August 1, 2024 > 14:43:05 | INFO | Start polling.
+August 1, 2024 > 15:03:00 | INFO | admin: 5050150433 -> {"message_id":24,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506580,"text":"\/ad","entities":[{"type":"bot_command","offset":0,"length":3}]}
+August 1, 2024 > 15:03:11 | INFO | admin: 5050150433 -> {"id":"3243486878072183120","from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"message":{"message_id":25,"from":{"id":5742815353,"is_bot":true,"first_name":"PandaShop_Admin","username":"PandaShopAdmin_bot"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506581,"text":"📊 Реклама","entities":[{"type":"underline","offset":0,"length":10}],"reply_markup":{"inline_keyboard":[[{"text":"📧 Рассылка","callback_data":"adv:mailing"}],[{"text":"🔗 Реферальные ссылки","callback_data":"adv:ref_urls"}],[{"text":"🧑‍💻 Обязательная подписка","callback_data":"adv:required_subs"}]]}},"chat_instance":"-8758052442208103540","data":"adv:mailing"}
+August 1, 2024 > 15:03:14 | INFO | admin: 5050150433 -> {"id":"3243486877042478455","from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"message":{"message_id":25,"from":{"id":5742815353,"is_bot":true,"first_name":"PandaShop_Admin","username":"PandaShopAdmin_bot"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506581,"edit_date":1722506591,"text":"📧 Рассылка","entities":[{"type":"bold","offset":0,"length":11}],"reply_markup":{"inline_keyboard":[[{"text":"📧 Создать рассылку","callback_data":"admin:ml:create"}],[{"text":"🧾 Управление рассылками","callback_data":"admin:ml:list"}],[{"text":"◀️ Назад","callback_data":"admin:mailing_md"}]]}},"chat_instance":"-8758052442208103540","data":"admin:ml:create"}
+August 1, 2024 > 15:03:16 | INFO | admin: 5050150433 -> {"id":"3243486877815916131","from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"message":{"message_id":25,"from":{"id":5742815353,"is_bot":true,"first_name":"PandaShop_Admin","username":"PandaShopAdmin_bot"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506581,"edit_date":1722506594,"text":"📧 Выберите получателей:","entities":[{"type":"bold","offset":0,"length":24}],"reply_markup":{"inline_keyboard":[[{"text":"🫂 Пользователи","callback_data":"mailing_choose:users"}],[{"text":"◀️ Назад","callback_data":"admin:mailing_md"}]]}},"chat_instance":"-8758052442208103540","data":"mailing_choose:users"}
+August 1, 2024 > 15:03:18 | INFO | admin: 5050150433 -> {"id":"3243486876916746409","from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"message":{"message_id":25,"from":{"id":5742815353,"is_bot":true,"first_name":"PandaShop_Admin","username":"PandaShopAdmin_bot"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506581,"edit_date":1722506596,"text":"📧 Перешлите пост:","entities":[{"type":"bold","offset":0,"length":18}],"reply_markup":{"inline_keyboard":[[{"text":"🙅🏻‍♂️ Отменить","callback_data":"admin:cancel"}]]}},"chat_instance":"-8758052442208103540","data":"admin:cancel"}
+August 1, 2024 > 15:03:29 | INFO | admin: 5050150433 -> {"message_id":27,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506609,"text":"\/check","entities":[{"type":"bot_command","offset":0,"length":6}]}
+August 1, 2024 > 15:03:49 | INFO | admin: 5050150433 -> {"message_id":31,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506629,"text":"🫂 Пользователи"}
+August 1, 2024 > 15:03:51 | INFO | admin: 5050150433 -> {"message_id":33,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506631,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:03:53 | INFO | admin: 5050150433 -> {"message_id":35,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506633,"text":"🫂 Пользователи"}
+August 1, 2024 > 15:03:54 | INFO | admin: 5050150433 -> {"message_id":37,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506634,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:03:54 | INFO | admin: 5050150433 -> {"message_id":39,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506634,"text":"🫂 Пользователи"}
+August 1, 2024 > 15:03:55 | INFO | admin: 5050150433 -> {"message_id":40,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506635,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:18 | INFO | admin: 5050150433 -> {"message_id":43,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506636,"text":"🫂 Пользователи"}
+August 1, 2024 > 15:04:18 | INFO | admin: 5050150433 -> {"message_id":52,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506638,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:18 | INFO | admin: 5050150433 -> {"message_id":51,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506638,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:18 | INFO | admin: 5050150433 -> {"message_id":50,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506638,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:18 | INFO | admin: 5050150433 -> {"message_id":49,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506638,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:18 | INFO | admin: 5050150433 -> {"message_id":48,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506637,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:18 | INFO | admin: 5050150433 -> {"message_id":47,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506637,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:18 | INFO | admin: 5050150433 -> {"message_id":46,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506637,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:18 | INFO | admin: 5050150433 -> {"message_id":45,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506636,"text":"🫂 Пользователи"}
+August 1, 2024 > 15:04:18 | INFO | admin: 5050150433 -> {"message_id":44,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506636,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:31 | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-188' coro=<Dispatcher._process_polling_updates() done, defined at /Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=ConnectionError('Too many connections')>
+Traceback (most recent call last):
+
+> File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                     │         │     │                   │    │               │        └ True
+                     │         │     │                   │    │               └ [<Update {"update_id":867991157,"message":{"message_id":43,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","l...
+                     │         │     │                   │    └ <function Dispatcher.process_updates at 0x104943be0>
+                     │         │     │                   └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1055ade40>
+                     │         │     └ <method 'from_iterable' of 'itertools.chain' objects>
+                     │         └ <class 'itertools.chain'>
+                     └ <module 'itertools' (built-in)>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+                 │       │       └ [<coroutine object Handler.notify at 0x1080292a0>, <coroutine object Handler.notify at 0x1080295b0>, <coroutine object Handle...
+                 │       └ <function gather at 0x1036fedd0>
+                 └ <module 'asyncio' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/__init__.py'>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+                     │           │        │       └ {}
+                     │           │        └ (<Update {"update_id":867991167,"message":{"message_id":53,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","l...
+                     │           └ <bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1055ade40>>
+                     └ Handler.HandlerObj(handler=<bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1...
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+                 │    │                │      │      └ <aiogram.types.fields.Field object at 0x104812080>
+                 │    │                │      └ <Update {"update_id":867991167,"message":{"message_id":53,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","la...
+                 │    │                └ <function Handler.notify at 0x104898f70>
+                 │    └ <aiogram.dispatcher.handler.Handler object at 0x105c68a90>
+                 └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1055ade40>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 108, in notify
+    data.update(await check_filters(handler_obj.filters, args))
+    │    │            │             │           │        └ (<Message {"message_id":53,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","usernam...
+    │    │            │             │           └ [FilterObj(filter=<aiogram.dispatcher.filters.builtin.StateFilter object at 0x1062a4bb0>, kwargs={}, is_async=True), FilterOb...
+    │    │            │             └ Handler.HandlerObj(handler=<function command_start at 0x10627fb50>, spec=FullArgSpec(args=['message', 'session'], varargs=Non...
+    │    │            └ <function check_filters at 0x1048992d0>
+    │    └ <method 'update' of 'dict' objects>
+    └ {}
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/filters/filters.py", line 77, in check_filters
+    f = await execute_filter(filter_, args)
+              │              │        └ (<Message {"message_id":53,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","usernam...
+              │              └ FilterObj(filter=<aiogram.dispatcher.filters.builtin.StateFilter object at 0x1062a4bb0>, kwargs={}, is_async=True)
+              └ <function execute_filter at 0x104899240>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/filters/filters.py", line 61, in execute_filter
+    return await filter_.filter(*args, **filter_.kwargs)
+                 │       │       │       │       └ {}
+                 │       │       │       └ FilterObj(filter=<aiogram.dispatcher.filters.builtin.StateFilter object at 0x1062a4bb0>, kwargs={}, is_async=True)
+                 │       │       └ (<Message {"message_id":53,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","usernam...
+                 │       └ <aiogram.dispatcher.filters.builtin.StateFilter object at 0x1062a4bb0>
+                 └ FilterObj(filter=<aiogram.dispatcher.filters.builtin.StateFilter object at 0x1062a4bb0>, kwargs={}, is_async=True)
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/filters/filters.py", line 166, in __call__
+    return await self.check(*args)
+                 │    │      └ (<Message {"message_id":53,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","usernam...
+                 │    └ <function StateFilter.check at 0x10489b250>
+                 └ <aiogram.dispatcher.filters.builtin.StateFilter object at 0x1062a4bb0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/filters/builtin.py", line 559, in check
+    state = await self.dispatcher.storage.get_state(chat=chat, user=user)
+                  │    │          │       │              │          └ 5050150433
+                  │    │          │       │              └ 5050150433
+                  │    │          │       └ <function RedisStorage2.get_state at 0x104978040>
+                  │    │          └ <aiogram.contrib.fsm_storage.redis.RedisStorage2 object at 0x105187a60>
+                  │    └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1055ade40>
+                  └ <aiogram.dispatcher.filters.builtin.StateFilter object at 0x1062a4bb0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/contrib/fsm_storage/redis.py", line 283, in get_state
+    return await self._redis.get(key) or self.resolve_state(default)
+                 │    │      │   │       │    │             └ None
+                 │    │      │   │       │    └ <staticmethod(<function BaseStorage.resolve_state at 0x1048b1090>)>
+                 │    │      │   │       └ <aiogram.contrib.fsm_storage.redis.RedisStorage2 object at 0x105187a60>
+                 │    │      │   └ 'bot_fsm:5050150433:5050150433:state'
+                 │    │      └ <function BasicKeyCommands.get at 0x105c75480>
+                 │    └ <redis.asyncio.client.Redis(<redis.asyncio.connection.ConnectionPool(<redis.asyncio.connection.Connection(host=127.0.0.1,port...
+                 └ <aiogram.contrib.fsm_storage.redis.RedisStorage2 object at 0x105187a60>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/redis/asyncio/client.py", line 610, in execute_command
+    conn = self.connection or await pool.get_connection(command_name, **options)
+           │    │                   │    │              │               └ {}
+           │    │                   │    │              └ 'GET'
+           │    │                   │    └ <function ConnectionPool.get_connection at 0x10565d6c0>
+           │    │                   └ <redis.asyncio.connection.ConnectionPool(<redis.asyncio.connection.Connection(host=127.0.0.1,port=6379,db=5)>)>
+           │    └ None
+           └ <redis.asyncio.client.Redis(<redis.asyncio.connection.ConnectionPool(<redis.asyncio.connection.Connection(host=127.0.0.1,port...
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1047, in get_connection
+    connection = self.get_available_connection()
+                 │    └ <function ConnectionPool.get_available_connection at 0x10565d750>
+                 └ <redis.asyncio.connection.ConnectionPool(<redis.asyncio.connection.Connection(host=127.0.0.1,port=6379,db=5)>)>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/redis/asyncio/connection.py", line 1062, in get_available_connection
+    raise ConnectionError("Too many connections") from None
+          └ <class 'redis.exceptions.ConnectionError'>
+
+redis.exceptions.ConnectionError: Too many connections
+August 1, 2024 > 15:04:31 | INFO | admin: 5050150433 -> {"message_id":77,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506671,"text":"🫂 Пользователи"}
+August 1, 2024 > 15:04:33 | INFO | admin: 5050150433 -> {"message_id":79,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506673,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:35 | INFO | admin: 5050150433 -> {"message_id":81,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506675,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:35 | INFO | admin: 5050150433 -> {"message_id":83,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506675,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:35 | INFO | admin: 5050150433 -> {"message_id":82,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506675,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:36 | INFO | admin: 5050150433 -> {"message_id":87,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506676,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:36 | INFO | admin: 5050150433 -> {"message_id":88,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506676,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:36 | INFO | admin: 5050150433 -> {"message_id":91,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506676,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:37 | INFO | admin: 5050150433 -> {"message_id":92,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506676,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:37 | INFO | admin: 5050150433 -> {"message_id":93,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506676,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:37 | INFO | admin: 5050150433 -> {"message_id":94,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506676,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:37 | INFO | admin: 5050150433 -> {"message_id":99,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506677,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:37 | INFO | admin: 5050150433 -> {"message_id":100,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506677,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:37 | INFO | admin: 5050150433 -> {"message_id":102,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506677,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:38 | INFO | admin: 5050150433 -> {"message_id":104,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506678,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:38 | INFO | admin: 5050150433 -> {"message_id":105,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506678,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:38 | INFO | admin: 5050150433 -> {"message_id":108,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506678,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:38 | INFO | admin: 5050150433 -> {"message_id":110,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506678,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:38 | INFO | admin: 5050150433 -> {"message_id":111,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506678,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:39 | INFO | admin: 5050150433 -> {"message_id":113,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506678,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:39 | INFO | admin: 5050150433 -> {"message_id":114,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506678,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:39 | INFO | admin: 5050150433 -> {"message_id":115,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506678,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:39 | INFO | admin: 5050150433 -> {"message_id":118,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506679,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:39 | INFO | admin: 5050150433 -> {"message_id":119,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506679,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:39 | INFO | admin: 5050150433 -> {"message_id":120,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506679,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:39 | INFO | admin: 5050150433 -> {"message_id":124,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506679,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:40 | INFO | admin: 5050150433 -> {"message_id":128,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506680,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:41 | INFO | admin: 5050150433 -> {"message_id":130,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506681,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:41 | INFO | admin: 5050150433 -> {"message_id":131,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506681,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:42 | INFO | admin: 5050150433 -> {"message_id":133,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506681,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:42 | INFO | admin: 5050150433 -> {"message_id":135,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506682,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:42 | INFO | admin: 5050150433 -> {"message_id":136,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506682,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:42 | INFO | admin: 5050150433 -> {"message_id":137,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506682,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:42 | INFO | admin: 5050150433 -> {"message_id":139,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506682,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:42 | INFO | admin: 5050150433 -> {"message_id":143,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506682,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:42 | INFO | admin: 5050150433 -> {"message_id":145,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506682,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:42 | INFO | admin: 5050150433 -> {"message_id":146,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506682,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:42 | INFO | admin: 5050150433 -> {"message_id":147,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506682,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:42 | INFO | admin: 5050150433 -> {"message_id":150,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506682,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:43 | INFO | admin: 5050150433 -> {"message_id":151,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506683,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:43 | INFO | admin: 5050150433 -> {"message_id":154,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506683,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:43 | INFO | admin: 5050150433 -> {"message_id":158,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506683,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:43 | INFO | admin: 5050150433 -> {"message_id":156,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506683,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:43 | INFO | admin: 5050150433 -> {"message_id":160,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506683,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:43 | INFO | admin: 5050150433 -> {"message_id":163,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506683,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:44 | INFO | admin: 5050150433 -> {"message_id":165,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506683,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:44 | INFO | admin: 5050150433 -> {"message_id":169,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506684,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:44 | INFO | admin: 5050150433 -> {"message_id":167,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506684,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:44 | INFO | admin: 5050150433 -> {"message_id":172,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506684,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:44 | INFO | admin: 5050150433 -> {"message_id":173,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506684,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:44 | INFO | admin: 5050150433 -> {"message_id":175,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506684,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:44 | INFO | admin: 5050150433 -> {"message_id":177,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506684,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:45 | INFO | admin: 5050150433 -> {"message_id":178,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506685,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:45 | INFO | admin: 5050150433 -> {"message_id":181,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506685,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:45 | INFO | admin: 5050150433 -> {"message_id":182,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506685,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:45 | INFO | admin: 5050150433 -> {"message_id":183,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506685,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:46 | INFO | admin: 5050150433 -> {"message_id":188,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506686,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:46 | INFO | admin: 5050150433 -> {"message_id":190,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506686,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:46 | INFO | admin: 5050150433 -> {"message_id":191,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506686,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:46 | INFO | admin: 5050150433 -> {"message_id":193,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506686,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:46 | INFO | admin: 5050150433 -> {"message_id":195,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506686,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:46 | INFO | admin: 5050150433 -> {"message_id":196,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506686,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:47 | INFO | admin: 5050150433 -> {"message_id":199,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506686,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:47 | INFO | admin: 5050150433 -> {"message_id":201,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506687,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:04:51 | INFO | admin: 5050150433 -> {"id":"3243486878937229432","from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"message":{"message_id":203,"from":{"id":5742815353,"is_bot":true,"first_name":"PandaShop_Admin","username":"PandaShopAdmin_bot"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506687,"text":"⚙️ Настройки\n\n👮‍♂️ Админ-состав:\n      []\n🗂 Бэкап\n      Файлов: Включено\n      Юзеров: Включено\n      Автоматический бэкап: Включено","entities":[{"type":"underline","offset":0,"length":12},{"type":"bold","offset":14,"length":19},{"type":"code","offset":40,"length":2},{"type":"bold","offset":43,"length":8},{"type":"bold","offset":58,"length":8},{"type":"code","offset":66,"length":8},{"type":"bold","offset":81,"length":8},{"type":"code","offset":89,"length":8},{"type":"bold","offset":104,"length":22},{"type":"code","offset":126,"length":8}],"reply_markup":{"inline_keyboard":[[{"text":"👮‍♂️ Админ Состав","callback_data":"admin:admins"}],[{"text":"🗄 Заявки в каналах","callback_data":"admin:groups_requests"}],[{"text":"🤖 BotStat","callback_data":"admin:botstat"}],[{"text":"🗂 Бэкап","callback_data":"admin:backup"}],[{"text":"↪️ Кнопки","callback_data":"admin:buttons"}]]}},"chat_instance":"-8758052442208103540","data":"admin:admins"}
+August 1, 2024 > 15:04:54 | INFO | admin: 5050150433 -> {"id":"3243486877522647610","from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"message":{"message_id":203,"from":{"id":5742815353,"is_bot":true,"first_name":"PandaShop_Admin","username":"PandaShopAdmin_bot"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506687,"edit_date":1722506691,"text":"👮‍♂️ Администраторы: \n[]","entities":[{"type":"underline","offset":0,"length":22},{"type":"code","offset":23,"length":2}],"reply_markup":{"inline_keyboard":[[{"text":"*️⃣ Добавить","callback_data":"admin:admins:add"},{"text":"❌ Удалить","callback_data":"admin:admins:delete"}],[{"text":"◀️ Назад","callback_data":"admin:settings"}]]}},"chat_instance":"-8758052442208103540","data":"admin:admins:add"}
+August 1, 2024 > 15:05:00 | INFO | admin: 5050150433 -> {"message_id":204,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506700,"text":"1220912921"}
+August 1, 2024 > 15:05:01 | ERROR | 1220912921: Commands are not installed.
+August 1, 2024 > 15:05:04 | ERROR | Task exception was never retrieved
+future: <Task finished name='Task-362' coro=<Dispatcher._process_polling_updates() done, defined at /Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py:410> exception=NetworkError("Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Connect call failed ('149.154.167.220', 443)]")>
+Traceback (most recent call last):
+
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiohttp/connector.py", line 980, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)  # type: ignore[return-value]  # noqa
+                 │    │     │                  │       └ {'ssl': <ssl.SSLContext object at 0x105ccd2c0>, 'family': <AddressFamily.AF_INET: 2>, 'proto': 6, 'flags': <AddressInfo.AI_NU...
+                 │    │     │                  └ (functools.partial(<class 'aiohttp.client_proto.ResponseHandler'>, loop=<_UnixSelectorEventLoop running=True closed=False deb...
+                 │    │     └ <function BaseEventLoop.create_connection at 0x103720790>
+                 │    └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+                 └ <aiohttp.connector.TCPConnector object at 0x10817eaa0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/base_events.py", line 1064, in create_connection
+    raise exceptions[0]
+          └ [TimeoutError(60, "Connect call failed ('149.154.167.220', 443)")]
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/base_events.py", line 1049, in create_connection
+    sock = await self._connect_sock(
+                 │    └ <function BaseEventLoop._connect_sock at 0x103720700>
+                 └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/base_events.py", line 960, in _connect_sock
+    await self.sock_connect(sock, address)
+          │    │            │     └ ('149.154.167.220', 443)
+          │    │            └ <socket.socket [closed] fd=-1, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6>
+          │    └ <function BaseSelectorEventLoop.sock_connect at 0x10376c670>
+          └ <_UnixSelectorEventLoop running=True closed=False debug=False>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/selector_events.py", line 500, in sock_connect
+    return await fut
+                 └ <Future finished exception=TimeoutError(60, "Connect call failed ('149.154.167.220', 443)")>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/selector_events.py", line 535, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+                  └ 60
+
+TimeoutError: [Errno 60] Connect call failed ('149.154.167.220', 443)
+
+
+The above exception was the direct cause of the following exception:
+
+
+Traceback (most recent call last):
+
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/bot/api.py", line 139, in make_request
+    async with session.post(url, data=req, **kwargs) as response:
+               │       │    │         │      └ {'proxy': None, 'proxy_auth': None, 'timeout': <object object at 0x102b85560>}
+               │       │    │         └ <aiohttp.formdata.FormData object at 0x1080412d0>
+               │       │    └ 'https://api.telegram.org/bot5742815353:AAHOLqyUv1Wf-Hm9QVybnDu5MbFIQYHAHE4/sendMessage'
+               │       └ <function ClientSession.post at 0x1043ba200>
+               └ <aiohttp.client.ClientSession object at 0x10817e860>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiohttp/client.py", line 1167, in __aenter__
+    self._resp = await self._coro
+    │    │             │    └ <member '_coro' of '_BaseRequestContextManager' objects>
+    │    │             └ <aiohttp.client._RequestContextManager object at 0x109a0a0b0>
+    │    └ <member '_resp' of '_BaseRequestContextManager' objects>
+    └ <aiohttp.client._RequestContextManager object at 0x109a0a0b0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiohttp/client.py", line 562, in _request
+    conn = await self._connector.connect(
+                 │    │          └ <function BaseConnector.connect at 0x1042304c0>
+                 │    └ <aiohttp.connector.TCPConnector object at 0x10817eaa0>
+                 └ <aiohttp.client.ClientSession object at 0x10817e860>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiohttp/connector.py", line 540, in connect
+    proto = await self._create_connection(req, traces, timeout)
+                  │    │                  │    │       └ ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None)
+                  │    │                  │    └ []
+                  │    │                  └ <aiohttp.client_reqrep.ClientRequest object at 0x109a69e40>
+                  │    └ <function TCPConnector._create_connection at 0x104230f70>
+                  └ <aiohttp.connector.TCPConnector object at 0x10817eaa0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiohttp/connector.py", line 901, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+                     │    │                         │    │       └ ClientTimeout(total=300, connect=None, sock_read=None, sock_connect=None)
+                     │    │                         │    └ []
+                     │    │                         └ <aiohttp.client_reqrep.ClientRequest object at 0x109a69e40>
+                     │    └ <function TCPConnector._create_direct_connection at 0x1042315a0>
+                     └ <aiohttp.connector.TCPConnector object at 0x10817eaa0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiohttp/connector.py", line 1209, in _create_direct_connection
+    raise last_exc
+          └ ClientConnectorError(ConnectionKey(host='api.telegram.org', port=443, is_ssl=True, ssl=None, proxy=None, proxy_auth=None, pro...
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiohttp/connector.py", line 1178, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                          │    └ <function TCPConnector._wrap_create_connection at 0x104231240>
+                          └ <aiohttp.connector.TCPConnector object at 0x10817eaa0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiohttp/connector.py", line 988, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+          │            │   └ <property object at 0x104207380>
+          │            └ <aiohttp.client_reqrep.ClientRequest object at 0x109a69e40>
+          └ <class 'aiohttp.client_exceptions.ClientConnectorError'>
+
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Connect call failed ('149.154.167.220', 443)]
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+> File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 418, in _process_polling_updates
+    for responses in itertools.chain.from_iterable(await self.process_updates(updates, fast)):
+                     │         │     │                   │    │               │        └ True
+                     │         │     │                   │    │               └ [<Update {"update_id":867991196,"message":{"message_id":118,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","...
+                     │         │     │                   │    └ <function Dispatcher.process_updates at 0x104943be0>
+                     │         │     │                   └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1055ade40>
+                     │         │     └ <method 'from_iterable' of 'itertools.chain' objects>
+                     │         └ <class 'itertools.chain'>
+                     └ <module 'itertools' (built-in)>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 236, in process_updates
+    return await asyncio.gather(*tasks)
+                 │       │       └ [<coroutine object Handler.notify at 0x109aecd60>, <coroutine object Handler.notify at 0x109aeef80>]
+                 │       └ <function gather at 0x1036fedd0>
+                 └ <module 'asyncio' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/asyncio/__init__.py'>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+                     │           │        │       └ {}
+                     │           │        └ (<Update {"update_id":867991197,"message":{"message_id":119,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","...
+                     │           └ <bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1055ade40>>
+                     └ Handler.HandlerObj(handler=<bound method Dispatcher.process_update of <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1...
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/dispatcher.py", line 257, in process_update
+    return await self.message_handlers.notify(update.message)
+                 │    │                │      │      └ <aiogram.types.fields.Field object at 0x104812080>
+                 │    │                │      └ <Update {"update_id":867991197,"message":{"message_id":119,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","l...
+                 │    │                └ <function Handler.notify at 0x104898f70>
+                 │    └ <aiogram.dispatcher.handler.Handler object at 0x105c68a90>
+                 └ <aiogram.dispatcher.dispatcher.Dispatcher object at 0x1055ade40>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/dispatcher/handler.py", line 117, in notify
+    response = await handler_obj.handler(*args, **partial_data)
+                     │           │        │       └ {'state': <aiogram.dispatcher.storage.FSMContext object at 0x1080406d0>}
+                     │           │        └ (<Message {"message_id":119,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","userna...
+                     │           └ <function command_start at 0x106ff6ef0>
+                     └ Handler.HandlerObj(handler=<function command_start at 0x106ff6ef0>, spec=FullArgSpec(args=['message', 'state'], varargs=None,...
+
+  File "/Users/webfinity/Downloads/bot 2/tg_bot/handlers/admins/settings/settings.py", line 15, in command_start
+    await message.answer(text, reply_markup=settings_markup)
+          │       │      │                  └ <InlineKeyboardMarkup {"inline_keyboard":[[{"text":"👮‍♂️ Админ Состав","callback_data":"admin:admins"}],[{"text":"🗄 Заявки в ...
+          │       │      └ '<u>⚙️ Настройки</u>\n\n<b>👮\u200d♂️ Админ-состав:</b>\n\t\t\t\t\t\t<code>[]</code>\n<b>🗂 Бэкап</b>\n\t\t\t\t\t\t<b>Файлов: <...
+          │       └ <function Message.answer at 0x1047b5870>
+          └ <Message {"message_id":119,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","usernam...
+
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/types/message.py", line 438, in answer
+    return await self.bot.send_message(
+                 │    └ <property object at 0x10461eb60>
+                 └ <Message {"message_id":119,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","usernam...
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/bot/bot.py", line 346, in send_message
+    result = await self.request(api.Methods.SEND_MESSAGE, payload)
+                   │    │       │   │       │             └ {'chat_id': 5050150433, 'text': '<u>⚙️ Настройки</u>\n\n<b>👮\u200d♂️ Админ-состав:</b>\n\t\t\t\t\t\t<code>[]</code>\n<b>🗂 Бэк...
+                   │    │       │   │       └ <aiogram.utils.helper.Item object at 0x1048139a0>
+                   │    │       │   └ <class 'aiogram.bot.api.Methods'>
+                   │    │       └ <module 'aiogram.bot.api' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/bot/api.py'>
+                   │    └ <function BaseBot.request at 0x104836b00>
+                   └ <aiogram.bot.bot.Bot object at 0x1055adcc0>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/bot/base.py", line 236, in request
+    return await api.make_request(await self.get_session(), self.server, self.__token, method, data, files,
+                 │   │                  │    │              │    │       │             │       │     └ None
+                 │   │                  │    │              │    │       │             │       └ {'chat_id': 5050150433, 'text': '<u>⚙️ Настройки</u>\n\n<b>👮\u200d♂️ Админ-состав:</b>\n\t\t\t\t\t\t<code>[]</code>\n<b>🗂 Бэк...
+                 │   │                  │    │              │    │       │             └ 'sendMessage'
+                 │   │                  │    │              │    │       └ <aiogram.bot.bot.Bot object at 0x1055adcc0>
+                 │   │                  │    │              │    └ TelegramAPIServer(base='https://api.telegram.org/bot{token}/{method}', file='https://api.telegram.org/file/bot{token}/{path}')
+                 │   │                  │    │              └ <aiogram.bot.bot.Bot object at 0x1055adcc0>
+                 │   │                  │    └ <function BaseBot.get_session at 0x1048363b0>
+                 │   │                  └ <aiogram.bot.bot.Bot object at 0x1055adcc0>
+                 │   └ <function make_request at 0x1047fa3b0>
+                 └ <module 'aiogram.bot.api' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/bot/api.py'>
+  File "/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/bot/api.py", line 142, in make_request
+    raise exceptions.NetworkError(f"aiohttp client throws an error: {e.__class__.__name__}: {e}")
+          │          └ <class 'aiogram.utils.exceptions.NetworkError'>
+          └ <module 'aiogram.utils.exceptions' from '/Users/webfinity/.pyenv/versions/3.10.5/lib/python3.10/site-packages/aiogram/utils/e...
+
+aiogram.utils.exceptions.NetworkError: Aiohttp client throws an error: ClientConnectorError: Cannot connect to host api.telegram.org:443 ssl:default [Connect call failed ('149.154.167.220', 443)]
+August 1, 2024 > 15:05:09 | INFO | admin: 5050150433 -> {"message_id":206,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506709,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:05:11 | INFO | admin: 5050150433 -> {"message_id":208,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506711,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:05:11 | INFO | admin: 5050150433 -> {"message_id":210,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506711,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:05:12 | INFO | admin: 5050150433 -> {"message_id":212,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506712,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:05:12 | INFO | admin: 5050150433 -> {"message_id":213,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506712,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:05:12 | INFO | admin: 5050150433 -> {"message_id":215,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506712,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:05:12 | INFO | admin: 5050150433 -> {"message_id":217,"from":{"id":5050150433,"is_bot":false,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","language_code":"en"},"chat":{"id":5050150433,"first_name":"Hojiakbar","last_name":"Nasriddinov","username":"hojiakbar_0628","type":"private"},"date":1722506712,"text":"⚙️ Настройки"}
+August 1, 2024 > 15:57:13 | INFO | Stop polling...
+August 1, 2024 > 15:57:13 | WARNING | Goodbye!
+August 1, 2024 > 15:57:16 | INFO | Scheduler started
+August 1, 2024 > 15:57:17 | INFO | Bot: PandaShop_Admin [@PandaShopAdmin_bot]
+August 1, 2024 > 15:57:17 | ERROR | 1220912921: Commands are not installed.
+August 1, 2024 > 15:57:17 | INFO | Added job "auto_update" to job store "default"
+August 1, 2024 > 15:57:17 | INFO | Added job "auto_backup" to job store "default"
+August 1, 2024 > 15:57:17 | INFO | Added job "reset_premium_users" to job store "default"
+August 1, 2024 > 15:57:17 | INFO | Start polling.
+August 1, 2024 > 16:01:30 | INFO | Stop polling...
+August 1, 2024 > 16:01:30 | WARNING | Goodbye!
